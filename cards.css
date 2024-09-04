@@ -1,14 +1,9 @@
-#card-container {
-    margin: 20px;
-}
-
-/* Styling for individual cards */
 .advCard {
     display: flex;
     align-items: center;
     padding: 20px;
     margin: 20px;
-    transition: 0.5s;
+    transition: .5s;
     background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent background */
     color: white;
     border-radius: 12px;
@@ -19,7 +14,6 @@
     overflow: hidden; /* Ensure overlay stays within card bounds */
 }
 
-/* Styling for the card image */
 .advCard img {
     flex: 0 0 100px;
     height: 150px;
@@ -27,25 +21,21 @@
     border-radius: 8px;
 }
 
-/* Styling for card content */
 .advCard-content {
     flex: 1;
     margin-left: 20px;
 }
 
-/* Title styling */
 .advCard-title {
     font-size: 18px;
     margin-bottom: 10px;
 }
 
-/* Description styling */
 .advCard-description {
     font-size: 12px;
     margin-bottom: 10px;
 }
 
-/* Button styling */
 .advCard-btn {
     padding: 8px;
     border-radius: 4px;
@@ -55,21 +45,19 @@
     color: white;
     text-decoration: none;
     font-size: 11px;
-    transition: 0.5s;
+    transition: .5s;
     display: inline-block;
 }
 
-/* Button hover effect */
 .advCard-btn:hover {
     box-shadow: 0 0 10px rgba(16, 167, 255, 0.589);
 }
 
-/* Card hover effect */
 .advCard:hover {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-/* Fireworks overlay styling */
+/* Fireworks overlay within the advCard */
 .fireworks-overlay {
     position: absolute;
     top: 0;
@@ -81,7 +69,6 @@
     display: none; /* Hidden by default */
 }
 
-/* Fireworks canvas styling */
 .fireworks-overlay canvas {
     display: block;
     width: 100%;
