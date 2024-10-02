@@ -165,28 +165,3 @@ function addAdvCard(title, description, imageUrl, btnName, linkOrFunction, effec
         });
     }
 }
-
-// Example usage
-addAdvCard(
-    "My shop",
-    "It's an excellent shop you can visit any time.",
-    "https://via.placeholder.com/300",
-    "Open",
-    "https://example.com",
-    "crackers",
-    -1,
-    1.3
-);
-
-addAdvCard(
-    "My Function Card",
-    "Click the button to see a function in action.",
-    "https://via.placeholder.com/300",
-    "Run Function",
-    function() {
-        alert("Button clicked, function executed!");
-    },
-    "crackers",
-    -1,
-    1.5
-);
