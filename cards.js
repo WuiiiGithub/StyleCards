@@ -1,28 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('[data-card]').forEach(element => {
-        const cardData = JSON.parse(element.getAttribute('data-card'));
-
-        // Safely handle function strings
-        const linkOrFunction = cardData.linkOrFunction.startsWith('function') ?
-            new Function('return ' + cardData.linkOrFunction)() :
-            cardData.linkOrFunction;
-
-        addAdvCard(
-            cardData.title,
-            cardData.description,
-            cardData.imageUrl,
-            cardData.btnName,
-            linkOrFunction,
-            cardData.effect,
-            cardData.effectSeconds,
-            cardData.speedFactor
-        );
-    });
-});
-
 function createFireworksEffect(cardElement, effect, effectSeconds, speedFactor = 1) {
     if (effect === 'crackers') {
-        const overlay = document.createElement('div');
+        const overlay = document.createElement('div'); // Changed from 'adv' to 'div'
         overlay.className = 'fireworks-overlay';
         cardElement.appendChild(overlay);
 
@@ -137,7 +115,7 @@ function createFireworksEffect(cardElement, effect, effectSeconds, speedFactor =
         }
 
         animate();
-
+        
         overlay.style.display = 'block';
 
         if (effectSeconds !== -1) {
@@ -160,11 +138,11 @@ function addAdvCard(title, description, imageUrl, btnName, linkOrFunction, effec
         </div>
     </div>`;
     
-    let container = document.getElementById('card-container');
+    let container = document.querySelector('.post-body.entry-content.float-container');
+    
     if (!container) {
-        container = document.createElement('div');
-        container.id = 'card-container';
-        document.body.appendChild(container);
+        console.error("Post container not found.");
+        return;
     }
     
     const cardElement = document.createElement('div');
@@ -187,3 +165,28 @@ function addAdvCard(title, description, imageUrl, btnName, linkOrFunction, effec
         });
     }
 }
+
+// Example usage
+addAdvCard(
+    "My shop",
+    "It's an excellent shop you can visit any time.",
+    "https://via.placeholder.com/300",
+    "Open",
+    "https://example.com",
+    "crackers",
+    -1,
+    1.3
+);
+
+addAdvCard(
+    "My Function Card",
+    "Click the button to see a function in action.",
+    "https://via.placeholder.com/300",
+    "Run Function",
+    function() {
+        alert("Button clicked, function executed!");
+    },
+    "crackers",
+    -1,
+    1.5
+);
