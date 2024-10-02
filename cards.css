@@ -1,9 +1,10 @@
 .advCard {
     display: flex;
-    align-items: center;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align items */
     padding: 20px;
-    margin: 20px;
-    transition: .5s;
+    margin: auto -10px; /* Center the card and maintain gap between cards */
+    transition: 0.5s;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
     border-radius: 12px;
@@ -15,39 +16,42 @@
 }
 
 .advCard img {
-    flex: 0 0 100px;
-    height: 150px;
-    object-fit: cover;
+    width: 200px; /* Fixed width for square images */
+    height: 230px; /* Fixed height for square images */
+    object-fit: cover; /* Ensure the image covers the area */
     border-radius: 8px;
 }
 
 .advCard-content {
     flex: 1;
-    margin-left: 20px;
+    margin-top: 0px; /* Add margin above content */
+    text-align: center; /* Center the text */
 }
 
 .advCard-title {
-    font-size: 18px;
-    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 1.5em; /* Adjust font size for responsiveness */
+    margin-bottom: 5px;
 }
 
 .advCard-description {
-    font-size: 12px;
+    font-size: 0.9em; /* Adjust font size for responsiveness */
     margin-bottom: 10px;
 }
 
 .advCard-btn {
-    padding: 4px;
+    padding: 8px 16px; /* Increase padding for better touch targets */
     border-radius: 4px;
     border: none;
     cursor: pointer;
     background-color: #1F75FE;
     color: white;
     text-decoration: none;
-    font-size: small;
+    font-size: 0.9em; /* Adjust font size for responsiveness */
     font-weight: bold;
-    transition: .5s;
+    transition: 0.5s;
     display: inline-block;
+    width: auto; /* Allow button to size according to content */
 }
 
 .advCard-btn:hover {
@@ -74,4 +78,55 @@
     width: 100%;
     height: 100%;
     background: transparent;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .advCard {
+        padding: 15px; /* Reduce padding */
+        margin: 10px -12px; /* Adjust margin for mobile */
+    }
+    .advCard-btn {
+        width: 90%; /* Make button full width on mobile */
+        padding: 10px; /* Increase padding for better touch targets */
+    }
+}
+
+@media (min-width: 769px) {
+    .advCard {
+        margin: 10px;
+        flex-direction: row; /* Align items side by side on larger screens */
+        justify-content: space-between; /* Space between image and text */
+        align-items: center; /* Center align items */
+    }
+
+    .advCard img {
+        margin-right: 20px; /* Space between image and text */
+    }
+
+    .advCard-content {
+        text-align: left; /* Align text to left */
+        flex: 1; /* Allow text to take up remaining space */
+    }
+
+    .advCard-title {
+        font-size: 2em; /* Larger title on desktop */
+    }
+
+    .advCard-description {
+        font-size: 1em; /* Larger description on desktop */
+    }
+
+    .advCard-btn {
+        padding: 8px 12px; /* Smaller button padding on desktop */
+    }
+}
+
+@media (max-width: 480px) {
+    .advCard-title {
+        font-size: 1em; /* Smaller title on very small screens */
+    }
+    .advCard-description {
+        font-size: 0.75em; /* Smaller description on very small screens */
+    }
 }
